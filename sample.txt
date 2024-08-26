@@ -1,0 +1,10 @@
+
+variable "ami_id" {
+    default = "ami-a1b2c3d4"
+    type = string
+    description = "The ID of AMI for provisioning instance"
+    validate {
+        condition = can(regex("^ami-", var.image_id))
+        error_message = "invalid AMI id"
+    }
+}
